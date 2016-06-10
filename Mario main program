@@ -1,4 +1,6 @@
-//Mario.CPP (MAIN!!!)
+//#include <lib.h>
+#include <iostream>
+#include <stdlib.h>
 #include <ctime>
 #include <map.h>
 #include <Windows.h>
@@ -7,6 +9,7 @@
 using namespace std; 
 // game setup
 int y; int y2; int x; int x2;
+int level=1;
 int speed=20;
 // game data
 int hp=100;
@@ -45,7 +48,7 @@ int main()
 						map[y2][x2]='$';
 					}break;
 					case '!':{GameOver(score,level,hp);
-						cout<<"Scores="<<score<<" Level="<<level<<" Health="<<hp<<'\n';}break;//level+=1;break;
+						cout<<"Scores="<<score<<" Level="<<level<<" Health="<<hp<<'\n';}break;//level=2;break;
 				
 				case '@':
 					{
@@ -236,7 +239,7 @@ while (level==2)
 ////////////////////////////////////////////////   Left arrow press
             case 75:
 				{
-					 x2=(x+1);
+					 x2=(x-1);
 					switch(map2[y][x2])
 				{
 					case' ':
@@ -337,7 +340,7 @@ while (level==2)
 								{
 									map2[y][x]=' ';
 									x+=1;
-									map[y][x2]='*';
+									map2[y][x2]='*';
 								}break;
 					    }   }
 						else
@@ -362,7 +365,7 @@ while (level==2)
 				}
 					switch (map2[y][x])
 					{
-						Game Over(score,level,hp);
+						GameOver(score,level,hp);
 					}
 }
 Sleep(speed);
